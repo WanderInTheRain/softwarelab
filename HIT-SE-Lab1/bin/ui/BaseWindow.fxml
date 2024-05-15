@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<VBox stylesheets="@BaseWindow.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.BaseWindowController">
+   <children>
+      <MenuBar fx:id="menuBar">
+        <menus>
+          <Menu mnemonicParsing="false" text="文件">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleOpenMenuItemClicked" text="打开" />
+                  <MenuItem fx:id="saveMenuItem" mnemonicParsing="false" onAction="#handleSaveMenuItemClicked" text="另存为" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleCloseMenuItemClicked" text="关闭" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox prefHeight="768.0" prefWidth="1200.0">
+         <children>
+            <ScrollPane fx:id="canvasContainer" prefHeight="748.0" prefWidth="780.0">
+              <content>
+                <AnchorPane fx:id="canvasPane" onMouseClicked="#handleCanvasPaneClicked" prefHeight="1000.0" prefWidth="1200.0">
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                     </children></AnchorPane>
+              </content>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </ScrollPane>
+            <VBox alignment="TOP_RIGHT" prefHeight="768.0" prefWidth="400.0">
+               <children>
+                  <TextFlow maxHeight="-Infinity" minHeight="-Infinity" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #F0F0F0; -fx-border-color: darkgray;" textAlignment="CENTER">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="控制台" textAlignment="CENTER">
+                           <font>
+                              <Font name="Microsoft YaHei" size="16.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextArea fx:id="console" editable="false" prefHeight="396.0" prefWidth="200.0" style="-fx-wrap-text: true;">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextArea>
+                  <StackPane fx:id="stackPane" prefHeight="300.0" prefWidth="380.0">
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="textButton" mnemonicParsing="false" onMouseClicked="#handleTextButtonClicked" prefHeight="40.0" prefWidth="120.0" text="查看源文本" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Button fx:id="showButton" mnemonicParsing="false" onMouseClicked="#handleShowButtonClicked" prefHeight="40.0" prefWidth="120.0" text="展示有向图" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Button fx:id="queryButton" mnemonicParsing="false" onMouseClicked="#handleQueryButtonClicked" prefHeight="40.0" prefWidth="120.0" text="查询桥接词" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Button fx:id="generateButton" mnemonicParsing="false" onMouseClicked="#handleGenerateButtonClicked" prefHeight="40.0" prefWidth="120.0" text="生成新文本" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Button fx:id="pathButton" mnemonicParsing="false" onMouseClicked="#handlePathButtonClicked" prefHeight="40.0" prefWidth="120.0" text="求最短路径" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Button fx:id="walkButton" mnemonicParsing="false" onMouseClicked="#handleWalkButtonClicked" prefHeight="40.0" prefWidth="120.0" text="随机游走" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                           </children>
+                        </GridPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
