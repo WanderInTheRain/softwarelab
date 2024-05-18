@@ -1,0 +1,19 @@
+{
+
+    "configurations": [
+    
+    {
+    
+    "type": "java",
+    
+    "name": "JavaFX_Sample",
+    
+    "request": "launch",
+    
+    "mainClass": "JavaFX_Sample",
+    
+    }
+    
+    ]
+    
+    }
